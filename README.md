@@ -1,28 +1,99 @@
 
 # Frontend Technical Assessment
 
-A focused engineering project built to demonstrate thoughtful problem-solving, clean implementation, and a practical approach to front-end development.
+A front-end engineering project built with React, Next.js, TypeScript and Tailwind CSS. The goal is to deliver a maintainable application with a clear structure, reliable behaviour and a production-ready deployment process.
 
-## Approach
+## Engineering Approach
 
-The goal is to deliver a solution that is easy to use, straightforward to maintain, and built on sound technical decisions. Each implementation choice should serve a clear purpose, balancing functionality, usability, and code quality.
+The implementation prioritises:
 
-## Engineering Priorities
+- **Maintainability:** Clear separation of responsibilities and reusable components.
+- **Simplicity:** Avoid unnecessary dependencies and complexity.
+- **User experience:** Responsive layouts, accessible interactions and useful feedback.
+- **Reliability:** Validate functionality and account for error and loading states.
+- **Reproducibility:** Documented setup instructions and a Docker-based production build.
 
-- **Clarity:** Keep the code readable and the structure intentional.
-- **Maintainability:** Build components and features that are easy to understand and extend.
-- **User experience:** Make interactions predictable and the interface responsive.
-- **Reliability:** Account for edge cases and validate behaviour, not just appearance.
-- **Practicality:** Prioritise the requirements that matter most over unnecessary complexity.
+## Technology Stack
+
+| Technology | Purpose |
+|---|---|
+| React | Component-based user interfaces |
+| Next.js | Application framework and routing |
+| TypeScript | Static type checking |
+| Tailwind CSS | Utility-based styling |
+| ESLint | Code quality checks |
+| npm | Dependency management |
+| Git and GitHub | Version control and source hosting |
+| Docker | Production build and containerised runtime |
+
+## Development Setup
+
+### Prerequisites
+
+Install the following before working on the project:
+
+- Git
+- Node.js (LTS)
+- npm
+- Docker Desktop, for production container testing
+
+### Installation
+
+Clone the repository and enter the project directory:
+
+```bash
+git clone <repository-url>
+cd <repository-directory>
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000).
+
+The development server supports hot reloading as you edit the application.
+
+## Production Deployment
+
+The application will include a multi-stage Docker build designed to produce a smaller production image and run the application without root privileges.
+
+The production build and container instructions will be documented here after they have been implemented and verified.
+
+## Environment Configuration
+
+Environment variables will be documented as the application requirements become clear.
+
+Local environment files must not be committed if they contain secrets or machine-specific configuration. An `.env.example` file will document required variables without exposing sensitive values.
+
+## Quality Checks
+
+The following checks will be used as the project develops:
+
+```bash
+npm run lint
+npm run build
+```
+
+The Docker image will also be built and run locally to verify the production configuration.
+
+## Technical Decisions
+
+Significant implementation decisions and trade-offs will be documented as the project progresses, with a preference for simple solutions that meet the requirements.
 
 ## Project Status
 
-Repository initialised. Project requirements, implementation details, and setup instructions will be documented as development progresses.
-
-## Development
-
-The technology stack, installation steps, and usage instructions will be added once the project requirements have been reviewed and the application structure is established.
-
-## Decisions & Trade-offs
-
-Technical decisions will be guided by the requirements, with a preference for simple, effective solutions over complexity without a clear benefit.
+- [x] Repository created and connected to GitHub
+- [x] Next.js application scaffolded
+- [x] Local development server verified
+- [ ] Production Docker configuration
+- [ ] Application requirements implemented
+- [ ] Final testing and documentation
