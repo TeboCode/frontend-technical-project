@@ -1,4 +1,3 @@
-
 # Frontend Technical Assessment
 
 A front-end engineering project built with React, Next.js, TypeScript and Tailwind CSS. The goal is to deliver a maintainable application with a clear structure, reliable behaviour and a production-ready deployment process.
@@ -24,7 +23,7 @@ The implementation prioritises:
 | ESLint | Code quality checks |
 | npm | Dependency management |
 | Git and GitHub | Version control and source hosting |
-| Docker | Production build and containerised runtime |
+| Docker | Production image and containerised runtime |
 
 ## Development Setup
 
@@ -35,7 +34,7 @@ Install the following before working on the project:
 - Git
 - Node.js (LTS)
 - npm
-- Docker Desktop, for production container testing
+- Docker Desktop, for container testing
 
 ### Installation
 
@@ -62,28 +61,61 @@ Open [http://localhost:3000](http://localhost:3000).
 
 The development server supports hot reloading as you edit the application.
 
-## Production Deployment
-
-The application will include a multi-stage Docker build designed to produce a smaller production image and run the application without root privileges.
-
-The production build and container instructions will be documented here after they have been implemented and verified.
-
-## Environment Configuration
-
-Environment variables will be documented as the application requirements become clear.
-
-Local environment files must not be committed if they contain secrets or machine-specific configuration. An `.env.example` file will document required variables without exposing sensitive values.
-
 ## Quality Checks
 
-The following checks will be used as the project develops:
+Run ESLint to check code quality:
 
 ```bash
 npm run lint
+```
+
+Create a production build:
+
+```bash
 npm run build
 ```
 
-The Docker image will also be built and run locally to verify the production configuration.
+## Production Deployment with Docker
+
+The project uses a multi-stage Docker build with Next.js standalone output. The final image runs the application as a non-root user.
+
+### Build the Docker image
+
+Run from the project root:
+
+```bash
+docker build -t tebo-tec .
+```
+
+### Run the production container
+
+```bash
+docker run --rm -p 3000:3000 --name tebo-tec tebo-tec
+```
+
+Open [http://localhost:3000](http://localhost:3000) to access the application.
+
+If port `3000` is already in use, map another local port:
+
+```bash
+docker run --rm -p 3001:3000 --name tebo-tec tebo-tec
+```
+
+Then open [http://localhost:3001](http://localhost:3001).
+
+Stop the container with `Ctrl+C`. The `--rm` option removes the container after it stops.
+
+### Docker Configuration
+
+- `Dockerfile` defines the multi-stage production image.
+- `.dockerignore` excludes dependencies, build output, Git metadata and environment files from the Docker build context.
+- `next.config.ts` enables standalone output for the production runtime.
+
+## Environment Configuration
+
+Environment variables should be documented as application requirements become clear.
+
+Local environment files must not be committed if they contain secrets or machine-specific configuration. If environment variables are required, an `.env.example` file should document them without exposing sensitive values.
 
 ## Technical Decisions
 
@@ -93,7 +125,10 @@ Significant implementation decisions and trade-offs will be documented as the pr
 
 - [x] Repository created and connected to GitHub
 - [x] Next.js application scaffolded
-- [x] Local development server verified
-- [ ] Production Docker configuration
+- [x] Local development setup documented
+- [x] Docker production configuration added
+- [x] Production Docker image built successfully
+- [x] ESLint command executed without reported errors
+- [ ] Production application verified in the browser
 - [ ] Application requirements implemented
 - [ ] Final testing and documentation
