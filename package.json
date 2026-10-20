@@ -2,12 +2,14 @@
   "name": "tebo-tec",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
-  },
+"scripts": {
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start",
+  "lint": "eslint",
+  "docker:build": "docker build -t tebo-tec .",
+  "docker:run": "docker run --rm -p 3000:3000 --name tebo-tec tebo-tec"
+},
   "dependencies": {
     "next": "16.4.2",
     "react": "19.3.0",
