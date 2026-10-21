@@ -7,6 +7,8 @@
 /* Design tokens — change brand colours here. */
 @theme {
   --color-brand: #43a047;
+  --color-brand-dark: #2e7d32; /* AA-contrast green for small text */
+  --color-warning: #b26a00;
   --color-heading: #3f4349;
   --color-body: #5f6368;
   --color-surface: #f4f6fa;
