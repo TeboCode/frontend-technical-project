@@ -1,0 +1,131 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "store-001",
+        "name": "Cambridge Crossing Shopping Centre",
+        "address": "Cnr Witkoppen Rd & Stone Haven Rd, Paulshof",
+        "city": "Johannesburg",
+        "province": "Gauteng",
+        "postalCode": "2191",
+        "openingHours": {
+          "mondayToFriday": "09:00 - 18:00",
+          "saturday": "09:00 - 16:00",
+          "sunday": "09:00 - 14:00",
+          "publicHolidays": "08:00 - 14:00"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [28.0572, -26.0321]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "store-002",
+        "name": "Menlyn Retail Centre",
+        "address": "Atterbury Road, Menlyn",
+        "city": "Pretoria",
+        "province": "Gauteng",
+        "postalCode": "0063",
+        "openingHours": {
+          "mondayToFriday": "09:00 - 18:00",
+          "saturday": "09:00 - 17:00",
+          "sunday": "09:00 - 15:00",
+          "publicHolidays": "09:00 - 14:00"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [28.2756, -25.7833]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "store-003",
+        "name": "Cape Town City Centre",
+        "address": "Adderley Street, City Centre",
+        "city": "Cape Town",
+        "province": "Western Cape",
+        "postalCode": "8001",
+        "openingHours": {
+          "mondayToFriday": "09:00 - 18:00",
+          "saturday": "09:00 - 16:00",
+          "sunday": "09:00 - 14:00",
+          "publicHolidays": "08:00 - 14:00"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [18.4239, -33.9249]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "store-004",
+        "name": "Bloemfontein Shopping Centre",
+        "address": "Nelson Mandela Drive, Brandwag",
+        "city": "Bloemfontein",
+        "province": "Free State",
+        "postalCode": "9301",
+        "openingHours": {
+          "mondayToFriday": "09:00 - 18:00",
+          "saturday": "09:00 - 16:00",
+          "sunday": "09:00 - 14:00",
+          "publicHolidays": "08:00 - 14:00"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [26.2023, -29.1182]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "store-005",
+        "name": "Polokwane Retail Centre",
+        "address": "Thabo Mbeki Street, Central",
+        "city": "Polokwane",
+        "province": "Limpopo",
+        "postalCode": "0699",
+        "openingHours": {
+          "mondayToFriday": "09:00 - 18:00",
+          "saturday": "09:00 - 16:00",
+          "sunday": "09:00 - 14:00",
+          "publicHolidays": "08:00 - 14:00"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [29.4486, -23.9045]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "store-006",
+        "name": "Gateway Retail Centre",
+        "address": "Umhlanga Ridge Boulevard, Umhlanga",
+        "city": "Durban",
+        "province": "KwaZulu-Natal",
+        "postalCode": "4319",
+        "openingHours": {
+          "mondayToFriday": "09:00 - 18:00",
+          "saturday": "09:00 - 17:00",
+          "sunday": "09:00 - 15:00",
+          "publicHolidays": "09:00 - 14:00"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [31.0617, -29.7250]
+      }
+    }
+  ]
+}
