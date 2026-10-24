@@ -71,7 +71,7 @@ export function CookieConsent() {
         onClick={reopen}
         aria-label="Show cookie notice"
         title="Cookie notice"
-        className="fixed right-[calc(1rem+env(safe-area-inset-right))] bottom-[calc(1rem+env(safe-area-inset-bottom))] z-50 flex size-12 items-center justify-center rounded-full bg-white text-brand-dark shadow-[0_4px_16px_rgba(0,0,0,0.18)] transition-transform hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand motion-reduce:transition-none starting:scale-0"
+        className="fixed right-[calc(1rem+env(safe-area-inset-right))] bottom-[calc(1rem+env(safe-area-inset-bottom))] z-50 flex size-12 items-center justify-center rounded-full bg-card text-brand-dark shadow-raised transition-transform hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand motion-reduce:transition-none starting:scale-0"
       >
         <Cookie aria-hidden="true" className="size-6" />
       </button>
@@ -85,7 +85,7 @@ export function CookieConsent() {
       onMouseLeave={() => setIsHovered(false)}
       onFocus={() => setHasFocus(true)}
       onBlur={handleBlur}
-      className="fixed inset-x-0 bottom-0 z-50 border-t border-black/5 bg-white pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_16px_rgba(0,0,0,0.08)] transition-transform duration-300 motion-reduce:transition-none starting:translate-y-full"
+      className="fixed inset-x-0 bottom-0 z-50 border-t border-line bg-card pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_16px_rgb(0_0_0/0.08)] dark:shadow-[0_-4px_16px_rgb(0_0_0/0.5)] transition-transform duration-300 motion-reduce:transition-none starting:translate-y-full"
     >
       <div className="container-page flex flex-col gap-3 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
         <p className="flex items-start gap-3 text-sm text-body">
@@ -103,7 +103,7 @@ export function CookieConsent() {
           ref={acceptButtonRef}
           type="button"
           onClick={acceptConsent}
-          className="shrink-0 rounded-sm bg-brand px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+          className="shrink-0 rounded-sm bg-brand px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-brand-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
         >
           Accept cookies
         </button>

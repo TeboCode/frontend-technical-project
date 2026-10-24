@@ -17,7 +17,7 @@ export function Panel({ id, title, description, action, className = "", children
     <section
       id={id}
       aria-labelledby={headingId}
-      className={`scroll-mt-6 rounded-md bg-white p-5 shadow-[0_2px_10px_rgba(0,0,0,0.06)] sm:p-6 ${className}`}
+      className={`scroll-mt-6 rounded-md bg-card p-5 shadow-card sm:p-6 ${className}`}
     >
       <div className="mb-5 flex flex-wrap items-start justify-between gap-3">
         <div>
