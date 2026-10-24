@@ -3,6 +3,7 @@
 import { Pie, PieChart, Tooltip } from "recharts";
 import { formatCurrency } from "@/lib/format";
 import type { CategorySpending } from "@/lib/insights/types";
+import { tooltipTheme } from "./chartTheme";
 
 type CategoryDonutChartProps = {
   categories: CategorySpending[];
@@ -31,7 +32,7 @@ export function CategoryDonutChart({ categories, total, currency }: CategoryDonu
           stroke="none"
           isAnimationActive={false}
         />
-        <Tooltip formatter={(value) => formatCurrency(Number(value), currency)} />
+        <Tooltip {...tooltipTheme} formatter={(value) => formatCurrency(Number(value), currency)} />
       </PieChart>
 
       <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center">

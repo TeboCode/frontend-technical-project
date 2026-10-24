@@ -6,7 +6,7 @@ export function Footer() {
   const { company, copyrightYear, trademarkNotice } = siteConfig.legal;
 
   return (
-    <footer className="border-t border-black/5 bg-white">
+    <footer className="border-t border-line bg-card">
       <div className="container-page flex flex-col gap-3 py-6 md:flex-row md:items-center md:justify-between md:gap-6">
         <p className="text-xs text-body">
           &copy; {copyrightYear} {company}. All rights reserved. {trademarkNotice}
