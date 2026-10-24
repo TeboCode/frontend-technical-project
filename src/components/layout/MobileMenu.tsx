@@ -39,6 +39,10 @@ export function MobileMenu({ children }: MobileMenuProps) {
       <div
         id="mobile-menu"
         hidden={!isOpen}
+        // Close the menu once a link is followed.
+        onClick={(event) => {
+          if ((event.target as HTMLElement).closest("a")) setIsOpen(false);
+        }}
         className="absolute inset-x-0 top-full border-t border-black/5 bg-white px-4 py-4 shadow-md"
       >
         {children}
