@@ -17,6 +17,40 @@ export const mainNav: NavItem[] = [
   { label: "Branch Locator", href: routes.branchLocator },
 ];
 
+export type PublicPage = {
+  href: string;
+  title: string;
+  description: string;
+};
+
+/**
+ * Public pages, listed in sitemap.xml and llms.txt. `insights` is left out on
+ * purpose: it shows a customer's personal finances, so it shouldn't appear in
+ * search results or AI answers. Add `legal` once that page exists.
+ */
+export const publicPages: PublicPage[] = [
+  {
+    href: routes.home,
+    title: "Home",
+    description: "Overview of TeboTec's spending insights, loan eligibility and branch locator tools.",
+  },
+  {
+    href: routes.loanEligibility,
+    title: "Loan Eligibility Simulator",
+    description:
+      "Enter your income, expenses and desired loan amount to estimate your loan eligibility, interest rate and monthly repayment, without affecting your credit score.",
+  },
+  {
+    href: routes.branchLocator,
+    title: "Branch Locator",
+    description:
+      "Find a TeboTec branch near you, with addresses, opening hours and directions across South Africa.",
+  },
+];
+
+/** Pages search engines are asked not to crawl. */
+export const privateRoutes: string[] = [routes.insights];
+
 export const footerNav: NavItem[] = [
   { label: "Branch Locator", href: routes.branchLocator },
   { label: "Legal", href: routes.legal },
