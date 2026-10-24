@@ -19,7 +19,7 @@ function shortLabel(label: string) {
 export function PeriodFilter({ presets, activePeriod, searchParams }: PeriodFilterProps) {
   return (
     <nav aria-label="Reporting period" className="w-full sm:w-auto">
-      <ul className="grid grid-cols-4 gap-1 rounded-md bg-white p-1 shadow-[0_2px_10px_rgba(0,0,0,0.06)] sm:inline-flex">
+      <ul className="grid grid-cols-4 gap-1 rounded-md bg-card p-1 shadow-card sm:inline-flex">
         {presets.map((preset) => {
           const isActive = preset.value === activePeriod;
           return (

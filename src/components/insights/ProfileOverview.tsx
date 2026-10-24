@@ -7,12 +7,12 @@ type ProfileOverviewProps = {
 
 export function ProfileOverview({ profile }: ProfileOverviewProps) {
   return (
-    <div className="flex flex-wrap items-center justify-between gap-4 rounded-md bg-white p-5 shadow-[0_2px_10px_rgba(0,0,0,0.06)] sm:p-6">
+    <div className="flex flex-wrap items-center justify-between gap-4 rounded-md bg-card p-5 shadow-card sm:p-6">
       <div>
         <p className="text-sm text-body">Welcome back,</p>
         <p className="text-xl font-semibold text-heading">{profile.name}</p>
         <p className="mt-1 text-sm text-body">
-          <span className="mr-2 inline-block rounded-full bg-brand/10 px-2.5 py-0.5 text-xs font-medium capitalize text-brand">
+          <span className="mr-2 inline-block rounded-full bg-brand/10 px-2.5 py-0.5 text-xs font-medium capitalize text-brand-dark">
             {profile.accountType}
           </span>
           Member since{" "}

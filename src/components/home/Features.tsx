@@ -3,7 +3,7 @@ import { FeatureCard } from "./FeatureCard";
 
 export function Features() {
   return (
-    <section aria-labelledby="features-heading" className="bg-white">
+    <section aria-labelledby="features-heading" className="bg-card">
       <div className="container-page py-12 md:py-12">
         <h2
           id="features-heading"

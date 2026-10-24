@@ -302,7 +302,7 @@ export function LoanSimulatorForm({ action, pending, products, rules, values, se
       <button
         type="submit"
         aria-disabled={pending}
-        className="w-full rounded-sm bg-brand px-6 py-3 text-base font-medium text-white transition-colors hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand aria-disabled:cursor-wait aria-disabled:opacity-70 sm:w-auto"
+        className="w-full rounded-sm bg-brand px-6 py-3 text-base font-medium text-white transition-colors hover:bg-brand-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand aria-disabled:cursor-wait aria-disabled:opacity-70 sm:w-auto"
       >
         {pending ? "Checking…" : "Check my eligibility"}
       </button>
@@ -312,7 +312,7 @@ export function LoanSimulatorForm({ action, pending, products, rules, values, se
 
 function FormSection({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <fieldset className="rounded-md bg-white p-5 shadow-[0_2px_10px_rgba(0,0,0,0.06)] sm:p-6">
+    <fieldset className="rounded-md bg-card p-5 shadow-card sm:p-6">
       <legend className="float-left mb-4 w-full text-lg font-semibold text-heading">{title}</legend>
       <div className="clear-both grid gap-4 sm:grid-cols-2">{children}</div>
     </fieldset>

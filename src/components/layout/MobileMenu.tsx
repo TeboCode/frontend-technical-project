@@ -43,7 +43,7 @@ export function MobileMenu({ children }: MobileMenuProps) {
         onClick={(event) => {
           if ((event.target as HTMLElement).closest("a")) setIsOpen(false);
         }}
-        className="absolute inset-x-0 top-full border-t border-black/5 bg-white px-4 py-4 shadow-md"
+        className="absolute inset-x-0 top-full border-t border-line bg-card px-4 py-4 shadow-md"
       >
         {children}
       </div>

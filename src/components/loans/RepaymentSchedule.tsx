@@ -14,7 +14,7 @@ type RepaymentScheduleProps = {
 /** Collapsed by default; the table scrolls inside its own box on narrow screens. */
 export function RepaymentSchedule({ repayment }: RepaymentScheduleProps) {
   return (
-    <details className="group rounded-md bg-white shadow-[0_2px_10px_rgba(0,0,0,0.06)]">
+    <details className="group rounded-md bg-card shadow-card">
       <summary className="flex cursor-pointer list-none items-center justify-between gap-3 p-5 text-base font-semibold text-heading sm:px-6 [&::-webkit-details-marker]:hidden">
         Repayment schedule
         <svg aria-hidden="true" viewBox="0 0 20 20" className="size-4 shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" strokeWidth={2}>
@@ -22,7 +22,7 @@ export function RepaymentSchedule({ repayment }: RepaymentScheduleProps) {
         </svg>
       </summary>
 
-      <div className="border-t border-black/5 px-5 pb-5 sm:px-6">
+      <div className="border-t border-line px-5 pb-5 sm:px-6">
         <p className="mt-4 text-xs text-body">
           {formatCurrency(repayment.monthlyPayment)} a month for {repayment.paymentSchedule.length} months.
           Total interest: {formatCurrency(repayment.totalInterest)}.
@@ -30,7 +30,7 @@ export function RepaymentSchedule({ repayment }: RepaymentScheduleProps) {
         <div className="mt-3 max-h-80 overflow-auto">
           <table className="w-full text-right text-xs sm:text-sm">
             <caption className="sr-only">Monthly repayment schedule</caption>
-            <thead className="sticky top-0 bg-white text-body">
+            <thead className="sticky top-0 bg-card text-body">
               <tr>
                 <th scope="col" className="py-2 pr-2 text-left font-medium">Month</th>
                 <th scope="col" className="px-2 py-2 font-medium">Principal (R)</th>
@@ -38,7 +38,7 @@ export function RepaymentSchedule({ repayment }: RepaymentScheduleProps) {
                 <th scope="col" className="py-2 pl-2 font-medium">Balance (R)</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-black/5 text-heading">
+            <tbody className="divide-y divide-line text-heading">
               {repayment.paymentSchedule.map((entry) => (
                 <tr key={entry.month}>
                   <th scope="row" className="py-2 pr-2 text-left font-normal">{entry.month}</th>

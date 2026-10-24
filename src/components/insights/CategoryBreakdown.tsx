@@ -28,7 +28,7 @@ export function CategoryBreakdown({ data, currency }: CategoryBreakdownProps) {
           />
         </div>
 
-        <ul className="divide-y divide-black/5">
+        <ul className="divide-y divide-line">
           {data.categories.map((category) => (
             <li key={category.name} className="flex items-center gap-3 py-2.5">
               <CategoryIcon icon={category.icon} color={category.color} />

@@ -42,10 +42,10 @@ function FieldShell({ name, label, hint, error, optional, className = "", childr
 }
 
 const controlClass = (hasError: boolean) =>
-  `block w-full min-w-0 rounded-sm border bg-white py-2.5 text-base text-heading focus:outline-2 focus:outline-offset-0 sm:text-sm ${
+  `block w-full min-w-0 rounded-sm border bg-card py-2.5 text-base text-heading focus:outline-2 focus:outline-offset-0 sm:text-sm ${
     hasError
       ? "border-danger focus:outline-danger/30"
-      : "border-black/15 focus:border-brand focus:outline-brand/30"
+      : "border-line-strong focus:border-brand focus:outline-brand/30"
   }`;
 
 type NumberFieldProps = Omit<FieldShellProps, "children"> &

@@ -54,7 +54,7 @@ export function SummaryCards({ summary, currency, periodLabel }: SummaryCardsPro
         {stats.map((stat) => (
           <div
             key={stat.label}
-            className="flex min-w-0 flex-col rounded-md bg-white p-4 shadow-[0_2px_10px_rgba(0,0,0,0.06)] sm:p-5"
+            className="flex min-w-0 flex-col rounded-md bg-card p-4 shadow-card sm:p-5"
           >
             <dt className="flex items-center gap-2 text-xs text-body sm:text-sm">
               <stat.icon aria-hidden="true" className="size-4 shrink-0 text-brand" />

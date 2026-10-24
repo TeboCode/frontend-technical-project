@@ -1,19 +1,70 @@
 @import "tailwindcss";
 
-@theme inline {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+/* `dark:` variants follow the data-theme attribute set on <html>. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/*
+ * Design tokens — change colours here. Each token has a light and a dark
+ * value; components use the token names (bg-card, text-heading, …) and never
+ * raw colours, so both themes stay in sync.
+ */
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+  --surface: #f4f6fa; /* page sections */
+  --card: #ffffff; /* cards, header, footer */
+  --heading: #3f4349;
+  --body: #5f6368;
+  --line: rgb(0 0 0 / 0.08);
+  --line-strong: rgb(0 0 0 / 0.15);
+  --muted: rgb(0 0 0 / 0.05);
+  --brand-text: #2e7d32; /* green for text: AA contrast on cards */
+  --warning: #b26a00;
+  --danger: #d32f2f;
+  --card-shadow: 0 2px 10px rgb(0 0 0 / 0.06);
+  --raised-shadow: 0 4px 16px rgb(0 0 0 / 0.12);
 }
 
-/* Design tokens — change brand colours here. */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --surface: #0f1216;
+  --card: #1a1e24;
+  --heading: #e6e8eb;
+  --body: #a3a9b1;
+  --line: rgb(255 255 255 / 0.1);
+  --line-strong: rgb(255 255 255 / 0.2);
+  --muted: rgb(255 255 255 / 0.07);
+  --brand-text: #81c784;
+  --warning: #f0b041;
+  --danger: #f28b82;
+  --card-shadow: 0 2px 10px rgb(0 0 0 / 0.4);
+  --raised-shadow: 0 4px 16px rgb(0 0 0 / 0.6);
+}
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-heading: var(--heading);
+  --color-body: var(--body);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-muted: var(--muted);
+  --color-brand-dark: var(--brand-text);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+
+  --shadow-card: var(--card-shadow);
+  --shadow-raised: var(--raised-shadow);
+}
+
+/* The same in both themes: solid fills that carry white text. */
 @theme {
   --color-brand: #43a047;
-  --color-brand-dark: #2e7d32; /* AA-contrast green for small text */
-  --color-warning: #b26a00;
-  --color-heading: #3f4349;
-  --color-body: #5f6368;
-  --color-surface: #f4f6fa;
-  --color-danger: #e53935;
-  --color-danger-hover: #c62828;
+  --color-brand-hover: #2e7d32;
+  --color-danger-solid: #d32f2f;
+  --color-danger-hover: #b71c1c;
 }
 
 @utility container-page {
@@ -28,7 +79,7 @@
 }
 
 body {
-  background: #ffffff;
-  color: var(--color-body);
+  background: var(--card);
+  color: var(--body);
   font-family: var(--font-sans);
 }

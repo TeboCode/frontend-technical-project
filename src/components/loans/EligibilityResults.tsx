@@ -10,7 +10,7 @@ type EligibilityResultsProps = {
   headingRef: Ref<HTMLHeadingElement>;
 };
 
-const card = "rounded-md bg-white p-5 shadow-[0_2px_10px_rgba(0,0,0,0.06)] sm:p-6";
+const card = "rounded-md bg-card p-5 shadow-card sm:p-6";
 
 const RISK_STYLES: Record<RiskCategory, { text: string; bar: string }> = {
   low: { text: "text-brand-dark", bar: "bg-brand" },
@@ -103,7 +103,7 @@ function SuccessResults({ state }: { state: Extract<SimulatorState, { status: "s
               {formatCurrency(recommendedLoan.recommendedAmount)}
             </dd>
           </dl>
-          <dl className="mt-4 grid grid-cols-2 gap-x-4 gap-y-3 border-t border-black/5 pt-4">
+          <dl className="mt-4 grid grid-cols-2 gap-x-4 gap-y-3 border-t border-line pt-4">
             <Stat label="Monthly repayment" value={formatCurrency(recommendedLoan.monthlyPayment)} />
             <Stat label="Interest rate" value={`${recommendedLoan.interestRate.toFixed(1)}% p.a.`} />
             <Stat label="Total repayment" value={formatCurrency(recommendedLoan.totalRepayment)} />
