@@ -14,7 +14,8 @@ export function Features() {
 
         <ul className="mt-10 flex flex-wrap justify-center gap-x-16 gap-y-12 md:mt-14">
           {features.map((feature) => (
-            <li key={feature.href} className="w-full max-w-[300px]">
+            // `flex` lets each card stretch to the row's height so buttons line up.
+            <li key={feature.href} className="flex w-full max-w-[300px]">
               <FeatureCard feature={feature} />
             </li>
           ))}

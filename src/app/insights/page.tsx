@@ -1,14 +1,18 @@
-import type { Metadata } from "next";
 import { Suspense } from "react";
 import { DashboardSkeleton } from "@/components/insights/DashboardSkeleton";
 import { InsightsDashboard } from "@/components/insights/InsightsDashboard";
 import { MOCK_CUSTOMER_ID } from "@/config/customer";
+import { routes } from "@/config/navigation";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+// Personal financial data: kept out of search results with noindex.
+export const metadata = pageMetadata({
   title: "Spending Insights",
   description:
     "Track your spending by category, follow monthly trends, monitor budgets and review recent transactions.",
-};
+  path: routes.insights,
+  noindex: true,
+});
 
 export default function InsightsPage({ searchParams }: PageProps<"/insights">) {
   return (

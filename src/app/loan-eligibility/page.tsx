@@ -1,12 +1,10 @@
-import type { Metadata } from "next";
 import { LoanSimulator } from "@/components/loans/LoanSimulator";
+import { routes } from "@/config/navigation";
+import { publicPageMetadata } from "@/lib/seo";
 import { getLoanProducts, getValidationRules } from "@/lib/loans/api";
 
-export const metadata: Metadata = {
-  title: "Loan Eligibility Simulator",
-  description:
-    "Enter your income, expenses and desired loan amount to estimate your loan eligibility, interest rate and monthly repayment — without affecting your credit score.",
-};
+// Title and description come from publicPages, shared with sitemap and llms.txt.
+export const metadata = publicPageMetadata(routes.loanEligibility);
 
 export default async function LoanEligibilityPage() {
   const [{ products }, rules] = await Promise.all([getLoanProducts(), getValidationRules()]);

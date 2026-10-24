@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/config/site";
+import { baseOpenGraph, baseTwitter } from "@/lib/seo";
 import { siteJsonLd } from "@/lib/structured-data";
 import { DEFAULT_THEME, themeInitScript } from "@/lib/theme";
 import "./globals.css";
@@ -14,18 +15,23 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+// Site-wide defaults. Pages override these with pageMetadata() from lib/seo.
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} | Insights, Loan Eligibility & Branch Locator`,
+    default: siteConfig.title,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
   openGraph: {
-    type: "website",
-    siteName: siteConfig.name,
-    title: siteConfig.name,
+    ...baseOpenGraph,
+    title: siteConfig.title,
+    description: siteConfig.description,
+  },
+  twitter: {
+    ...baseTwitter,
+    title: siteConfig.title,
     description: siteConfig.description,
   },
 };
@@ -35,7 +41,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     // Rendered light; the inline script may switch data-theme before first
     // paint, hence suppressHydrationWarning on <html>.
     <html
-      lang="en"
+      lang={siteConfig.locale}
       data-theme={DEFAULT_THEME}
       suppressHydrationWarning
       className={`${inter.variable} h-full antialiased`}

@@ -48,9 +48,6 @@ export const publicPages: PublicPage[] = [
   },
 ];
 
-/** Pages search engines are asked not to crawl. */
-export const privateRoutes: string[] = [routes.insights];
-
 export const footerNav: NavItem[] = [
   { label: "Branch Locator", href: routes.branchLocator },
   { label: "Legal", href: routes.legal },
