@@ -63,6 +63,9 @@
 @theme {
   --color-brand: #43a047;
   --color-brand-hover: #2e7d32;
+  /* Primary buttons: white text needs 4.5:1, which --color-brand (3.3:1) misses. */
+  --color-brand-solid: #2e7d32;
+  --color-brand-solid-hover: #1b5e20;
   --color-danger-solid: #d32f2f;
   --color-danger-hover: #b71c1c;
 }
