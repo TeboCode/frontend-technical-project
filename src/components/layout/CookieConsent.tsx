@@ -10,7 +10,7 @@ import {
   type FocusEvent,
   type MouseEvent,
 } from "react";
-import { routes } from "@/config/navigation";
+import { legalAnchors, routes } from "@/config/navigation";
 import { siteConfig } from "@/config/site";
 import { acceptConsent, readConsent, subscribeToConsent } from "@/lib/cookie-consent";
 
@@ -93,7 +93,7 @@ export function CookieConsent() {
           <span>
             We use cookies to make your experience on the {siteConfig.name} website better. By
             using our website you agree to our{" "}
-            <Link href={routes.legal} className="font-medium text-brand-dark underline">
+            <Link href={`${routes.legal}#${legalAnchors.cookiePolicy}`} className="font-medium text-brand-dark underline">
               cookie policy
             </Link>
             .

@@ -26,7 +26,7 @@ export type PublicPage = {
 /**
  * Public pages, listed in sitemap.xml and llms.txt. `insights` is left out on
  * purpose: it shows a customer's personal finances, so it shouldn't appear in
- * search results or AI answers. Add `legal` once that page exists.
+ * search results or AI answers.
  */
 export const publicPages: PublicPage[] = [
   {
@@ -46,7 +46,18 @@ export const publicPages: PublicPage[] = [
     description:
       "Find a TeboTec branch near you, with addresses, opening hours and directions across South Africa.",
   },
+  {
+    href: routes.legal,
+    title: "Legal",
+    description:
+      "TeboTec's terms of use, privacy policy, cookie policy and loan simulator disclaimer, and how to contact us about them.",
+  },
 ];
+
+/** Section anchors on the legal page that other pages link to. */
+export const legalAnchors = {
+  cookiePolicy: "cookie-policy",
+} as const;
 
 export const footerNav: NavItem[] = [
   { label: "Branch Locator", href: routes.branchLocator },
