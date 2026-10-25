@@ -63,7 +63,7 @@ export function TransactionFilters({ categories, query, period }: TransactionFil
       <div className="col-span-2 flex items-end gap-2 lg:col-span-1">
         <button
           type="submit"
-          className="flex-1 rounded-sm bg-brand px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-hover lg:flex-none"
+          className="flex-1 rounded-sm bg-brand-solid px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-solid-hover lg:flex-none"
         >
           Apply
         </button>

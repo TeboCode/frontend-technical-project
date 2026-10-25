@@ -30,7 +30,7 @@ export function PeriodFilter({ presets, activePeriod, searchParams }: PeriodFilt
                 scroll={false}
                 className={`block whitespace-nowrap rounded-sm px-2 py-2 text-center text-sm transition-colors sm:px-3 sm:py-1.5 ${
                   isActive
-                    ? "bg-brand font-medium text-white"
+                    ? "bg-brand-solid font-medium text-white"
                     : "text-heading hover:bg-surface"
                 }`}
               >

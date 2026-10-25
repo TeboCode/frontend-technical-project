@@ -302,7 +302,7 @@ export function LoanSimulatorForm({ action, pending, products, rules, values, se
       <button
         type="submit"
         aria-disabled={pending}
-        className="w-full rounded-sm bg-brand px-6 py-3 text-base font-medium text-white transition-colors hover:bg-brand-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand aria-disabled:cursor-wait aria-disabled:opacity-70 sm:w-auto"
+        className="w-full rounded-sm bg-brand-solid px-6 py-3 text-base font-medium text-white transition-colors hover:bg-brand-solid-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand aria-disabled:cursor-wait aria-disabled:opacity-70 sm:w-auto"
       >
         {pending ? "Checking…" : "Check my eligibility"}
       </button>

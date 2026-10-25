@@ -103,7 +103,7 @@ export function CookieConsent() {
           ref={acceptButtonRef}
           type="button"
           onClick={acceptConsent}
-          className="shrink-0 rounded-sm bg-brand px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-brand-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+          className="shrink-0 rounded-sm bg-brand-solid px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-brand-solid-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
         >
           Accept cookies
         </button>
