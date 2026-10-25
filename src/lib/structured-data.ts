@@ -8,7 +8,7 @@
 import type { Graph, Organization, WebSite } from "schema-dts";
 import { siteConfig } from "@/config/site";
 
-const absoluteUrl = (path: string) => new URL(path, siteConfig.url).toString();
+export const absoluteUrl = (path: string) => new URL(path, siteConfig.url).toString();
 
 export const organizationId = absoluteUrl("/#organization");
 export const websiteId = absoluteUrl("/#website");

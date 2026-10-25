@@ -86,3 +86,86 @@ body {
   color: var(--body);
   font-family: var(--font-sans);
 }
+
+/*
+ * Leaflet (branch locator map). leaflet.css loads after this file, so these
+ * rules use an extra class or [data-theme] to win on specificity.
+ * The tiles are inverted and hue-rotated so land/water keep their colours
+ * but the map no longer glows white; markers are in a separate pane and keep
+ * their brand colours.
+ */
+/* Both themes: leaflet.css colours every map link blue (#0078a8). */
+.leaflet-container .leaflet-popup-content a {
+  color: var(--brand-text);
+}
+
+[data-theme="dark"] .leaflet-container {
+  background: var(--surface);
+}
+
+[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) brightness(0.9) contrast(0.9);
+}
+
+[data-theme="dark"] .leaflet-popup-content-wrapper,
+[data-theme="dark"] .leaflet-popup-tip,
+[data-theme="dark"] .leaflet-tooltip {
+  background: var(--card);
+  color: var(--body);
+  box-shadow: var(--raised-shadow);
+}
+
+[data-theme="dark"] .leaflet-tooltip {
+  border-color: var(--line-strong);
+}
+
+[data-theme="dark"] .leaflet-tooltip-top::before {
+  border-top-color: var(--card);
+}
+
+[data-theme="dark"] .leaflet-tooltip-bottom::before {
+  border-bottom-color: var(--card);
+}
+
+[data-theme="dark"] .leaflet-tooltip-left::before {
+  border-left-color: var(--card);
+}
+
+[data-theme="dark"] .leaflet-tooltip-right::before {
+  border-right-color: var(--card);
+}
+
+[data-theme="dark"] .leaflet-container a.leaflet-popup-close-button {
+  color: var(--body);
+}
+
+[data-theme="dark"] .leaflet-bar,
+[data-theme="dark"] .leaflet-touch .leaflet-bar {
+  border-color: var(--line-strong);
+}
+
+[data-theme="dark"] .leaflet-bar a {
+  background: var(--card);
+  border-bottom-color: var(--line-strong);
+  color: var(--heading);
+}
+
+[data-theme="dark"] .leaflet-bar a:hover,
+[data-theme="dark"] .leaflet-bar a:focus {
+  background: var(--surface);
+}
+
+[data-theme="dark"] .leaflet-bar a.leaflet-disabled {
+  background: var(--card);
+  color: var(--body);
+  opacity: 0.5;
+}
+
+[data-theme="dark"] .leaflet-container .leaflet-control-attribution {
+  background: color-mix(in srgb, var(--card) 85%, transparent);
+  color: var(--body);
+}
+
+[data-theme="dark"] .leaflet-control-attribution a {
+  color: var(--brand-text);
+}
