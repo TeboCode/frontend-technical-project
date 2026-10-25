@@ -70,6 +70,33 @@
   --color-danger-hover: #b71c1c;
 }
 
+/* Playful animations (Log Out "premium feature" dialog). Use with motion-safe:. */
+@theme {
+  --animate-wiggle: wiggle 2.4s ease-in-out 0.5s infinite;
+  --animate-twinkle: twinkle 1.4s ease-in-out infinite alternate;
+  --animate-confetti: confetti 650ms cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
+
+  /* A quick wiggle, then a rest, so it reads as a "ta-da" rather than a shake. */
+  @keyframes wiggle {
+    0%, 40%, 100% { transform: rotate(0); }
+    8% { transform: rotate(-14deg) scale(1.1); }
+    16% { transform: rotate(12deg) scale(1.1); }
+    24% { transform: rotate(-8deg); }
+    32% { transform: rotate(4deg); }
+  }
+
+  @keyframes twinkle {
+    from { opacity: 0.35; transform: scale(0.7) rotate(0); }
+    to { opacity: 1; transform: scale(1.15) rotate(20deg); }
+  }
+
+  @keyframes confetti {
+    from { opacity: 1; transform: translate(-50%, -50%) scale(0.4); }
+    70% { opacity: 1; }
+    to { opacity: 0; transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) rotate(var(--r)); }
+  }
+}
+
 @utility container-page {
   margin-inline: auto;
   width: 100%;
@@ -85,6 +112,66 @@ body {
   background: var(--card);
   color: var(--body);
   font-family: var(--font-sans);
+}
+
+/*
+ * Playful <dialog>: springs in (the cubic-bezier overshoots past 1), drops
+ * out quickly. allow-discrete + @starting-style animate the open/close
+ * itself, which otherwise switches display instantly.
+ */
+.playful-dialog,
+.playful-dialog::backdrop {
+  transition-property: opacity, transform, background-color, backdrop-filter, overlay, display;
+  transition-duration: 180ms;
+  transition-timing-function: ease-in;
+  transition-behavior: allow-discrete;
+}
+
+.playful-dialog {
+  opacity: 0;
+  transform: translateY(1.5rem) scale(0.8) rotate(-3deg);
+}
+
+.playful-dialog[open] {
+  opacity: 1;
+  transform: none;
+  transition-duration: 450ms;
+  transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.playful-dialog::backdrop {
+  background-color: rgb(15 18 22 / 0);
+  backdrop-filter: blur(0);
+}
+
+.playful-dialog[open]::backdrop {
+  background-color: rgb(15 18 22 / 0.55);
+  backdrop-filter: blur(4px);
+  transition-duration: 300ms;
+  transition-timing-function: ease-out;
+}
+
+@starting-style {
+  .playful-dialog[open] {
+    opacity: 0;
+    transform: translateY(1.5rem) scale(0.8) rotate(-3deg);
+  }
+
+  .playful-dialog[open]::backdrop {
+    background-color: rgb(15 18 22 / 0);
+    backdrop-filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .playful-dialog,
+  .playful-dialog::backdrop {
+    transition: none;
+  }
+
+  .playful-dialog {
+    transform: none;
+  }
 }
 
 /*
