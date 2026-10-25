@@ -13,6 +13,16 @@ const CHANGE_EVENT = "theme-change";
  */
 export const themeInitScript = `(function(){try{var t=localStorage.getItem(${JSON.stringify(STORAGE_KEY)});if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}})()`;
 
+/** Applies the saved theme from the browser, for documents rendered without themeInitScript. */
+export function applyStoredTheme() {
+  try {
+    const theme = window.localStorage.getItem(STORAGE_KEY);
+    if (theme === "dark" || theme === "light") document.documentElement.setAttribute("data-theme", theme);
+  } catch {
+    // Storage unavailable: keep the default theme.
+  }
+}
+
 export function readTheme(): Theme {
   return document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
 }

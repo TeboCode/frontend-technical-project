@@ -52,7 +52,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col">
         <JsonLd data={siteJsonLd()} />
         <Header />
-        <main className="flex-1">{children}</main>
+        {/* Flex column so short pages (404, errors) can stretch to the footer. */}
+        <main className="flex flex-1 flex-col">{children}</main>
         <Footer />
         <CookieConsent />
       </body>
