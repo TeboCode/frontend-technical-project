@@ -6,6 +6,7 @@
 import { features } from "@/config/features";
 import { publicPages, routes } from "@/config/navigation";
 import { siteConfig } from "@/config/site";
+import { type LegalBlock, legalLastUpdated, legalSections } from "@/lib/legal/content";
 
 const absoluteUrl = (path: string) => new URL(path, siteConfig.url).toString();
 
@@ -106,6 +107,27 @@ function branchSection() {
   );
 }
 
+function legalBlockMarkdown(block: LegalBlock) {
+  switch (block.type) {
+    case "paragraph":
+      return block.text;
+    case "list":
+      return block.items.map((item) => `- ${item}`).join("\n");
+    case "table":
+      return [block.columns, block.columns.map(() => "---"), ...block.rows]
+        .map((row) => `| ${row.join(" | ")} |`)
+        .join("\n");
+  }
+}
+
+function legalSection() {
+  const sections = legalSections
+    .map((section) => `### ${section.title}\n\n${section.blocks.map(legalBlockMarkdown).join("\n\n")}`)
+    .join("\n\n");
+
+  return pageSection(routes.legal, `Last updated: ${legalLastUpdated}\n\n${sections}`);
+}
+
 export function buildLlmsFullTxt() {
   return `${introduction()}
 
@@ -115,8 +137,6 @@ ${loanSection()}
 
 ${branchSection()}
 
-## Legal
-
-© ${siteConfig.legal.copyrightYear} ${siteConfig.legal.company}. All rights reserved. ${siteConfig.legal.trademarkNotice}
+${legalSection()}
 `;
 }
