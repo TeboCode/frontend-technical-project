@@ -9,9 +9,9 @@ type TransactionsPaginationProps = {
 };
 
 const linkClass =
-  "rounded-sm border border-black/15 px-3 py-1.5 text-sm text-heading transition-colors hover:bg-surface";
+  "rounded-sm border border-line-strong px-3 py-1.5 text-sm text-heading transition-colors hover:bg-surface";
 const disabledClass =
-  "rounded-sm border border-black/10 px-3 py-1.5 text-sm text-body/50";
+  "rounded-sm border border-line px-3 py-1.5 text-sm text-body/50";
 
 export function TransactionsPagination({ pagination, searchParams }: TransactionsPaginationProps) {
   const { total, limit, offset, hasMore } = pagination;

@@ -12,7 +12,7 @@ import { BranchFilters, type LocationStatus } from "./BranchFilters";
 // is server-rendered and carries the same information.
 const BranchMap = dynamic(() => import("./BranchMap"), {
   ssr: false,
-  loading: () => <div className="h-full w-full animate-pulse bg-black/5" />,
+  loading: () => <div className="h-full w-full animate-pulse bg-muted" />,
 });
 
 type BranchLocatorProps = {
@@ -108,7 +108,7 @@ export function BranchLocator({ branches }: BranchLocatorProps) {
 
       <div
         ref={mapRef}
-        className="h-72 scroll-mt-4 overflow-hidden rounded-md bg-white shadow-[0_2px_10px_rgba(0,0,0,0.06)] sm:h-96 lg:sticky lg:top-6 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:h-[calc(100vh-8rem)] lg:min-h-[28rem] lg:self-start"
+        className="h-72 scroll-mt-4 overflow-hidden rounded-md bg-card shadow-card sm:h-96 lg:sticky lg:top-6 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:h-[calc(100vh-8rem)] lg:min-h-[28rem] lg:self-start"
       >
         <BranchMap
           branches={visibleBranches}
@@ -130,7 +130,7 @@ export function BranchLocator({ branches }: BranchLocatorProps) {
         </div>
 
         {results.length === 0 ? (
-          <div className="rounded-md bg-white p-6 text-center text-sm text-body shadow-[0_2px_10px_rgba(0,0,0,0.06)]">
+          <div className="rounded-md bg-card p-6 text-center text-sm text-body shadow-card">
             <p>No branches match your search.</p>
             <button
               type="button"

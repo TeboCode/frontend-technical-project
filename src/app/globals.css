@@ -1,19 +1,73 @@
 @import "tailwindcss";
 
-@theme inline {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+/* `dark:` variants follow the data-theme attribute set on <html>. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/*
+ * Design tokens — change colours here. Each token has a light and a dark
+ * value; components use the token names (bg-card, text-heading, …) and never
+ * raw colours, so both themes stay in sync.
+ */
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+  --surface: #f4f6fa; /* page sections */
+  --card: #ffffff; /* cards, header, footer */
+  --heading: #3f4349;
+  --body: #5f6368;
+  --line: rgb(0 0 0 / 0.08);
+  --line-strong: rgb(0 0 0 / 0.15);
+  --muted: rgb(0 0 0 / 0.05);
+  --brand-text: #276c2b; /* green for text: AA contrast on cards and green tints */
+  --warning: #b26a00;
+  --danger: #c62828; /* AA contrast on white and on red tints */
+  --card-shadow: 0 2px 10px rgb(0 0 0 / 0.06);
+  --raised-shadow: 0 4px 16px rgb(0 0 0 / 0.12);
 }
 
-/* Design tokens — change brand colours here. */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --surface: #0f1216;
+  --card: #1a1e24;
+  --heading: #e6e8eb;
+  --body: #a3a9b1;
+  --line: rgb(255 255 255 / 0.1);
+  --line-strong: rgb(255 255 255 / 0.2);
+  --muted: rgb(255 255 255 / 0.07);
+  --brand-text: #81c784;
+  --warning: #f0b041;
+  --danger: #f28b82;
+  --card-shadow: 0 2px 10px rgb(0 0 0 / 0.4);
+  --raised-shadow: 0 4px 16px rgb(0 0 0 / 0.6);
+}
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-heading: var(--heading);
+  --color-body: var(--body);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-muted: var(--muted);
+  --color-brand-dark: var(--brand-text);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+
+  --shadow-card: var(--card-shadow);
+  --shadow-raised: var(--raised-shadow);
+}
+
+/* The same in both themes: solid fills that carry white text. */
 @theme {
   --color-brand: #43a047;
-  --color-brand-dark: #2e7d32; /* AA-contrast green for small text */
-  --color-warning: #b26a00;
-  --color-heading: #3f4349;
-  --color-body: #5f6368;
-  --color-surface: #f4f6fa;
-  --color-danger: #e53935;
-  --color-danger-hover: #c62828;
+  --color-brand-hover: #2e7d32;
+  /* Primary buttons: white text needs 4.5:1, which --color-brand (3.3:1) misses. */
+  --color-brand-solid: #2e7d32;
+  --color-brand-solid-hover: #1b5e20;
+  --color-danger-solid: #d32f2f;
+  --color-danger-hover: #b71c1c;
 }
 
 @utility container-page {
@@ -28,7 +82,90 @@
 }
 
 body {
-  background: #ffffff;
-  color: var(--color-body);
+  background: var(--card);
+  color: var(--body);
   font-family: var(--font-sans);
+}
+
+/*
+ * Leaflet (branch locator map). leaflet.css loads after this file, so these
+ * rules use an extra class or [data-theme] to win on specificity.
+ * The tiles are inverted and hue-rotated so land/water keep their colours
+ * but the map no longer glows white; markers are in a separate pane and keep
+ * their brand colours.
+ */
+/* Both themes: leaflet.css colours every map link blue (#0078a8). */
+.leaflet-container .leaflet-popup-content a {
+  color: var(--brand-text);
+}
+
+[data-theme="dark"] .leaflet-container {
+  background: var(--surface);
+}
+
+[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) brightness(0.9) contrast(0.9);
+}
+
+[data-theme="dark"] .leaflet-popup-content-wrapper,
+[data-theme="dark"] .leaflet-popup-tip,
+[data-theme="dark"] .leaflet-tooltip {
+  background: var(--card);
+  color: var(--body);
+  box-shadow: var(--raised-shadow);
+}
+
+[data-theme="dark"] .leaflet-tooltip {
+  border-color: var(--line-strong);
+}
+
+[data-theme="dark"] .leaflet-tooltip-top::before {
+  border-top-color: var(--card);
+}
+
+[data-theme="dark"] .leaflet-tooltip-bottom::before {
+  border-bottom-color: var(--card);
+}
+
+[data-theme="dark"] .leaflet-tooltip-left::before {
+  border-left-color: var(--card);
+}
+
+[data-theme="dark"] .leaflet-tooltip-right::before {
+  border-right-color: var(--card);
+}
+
+[data-theme="dark"] .leaflet-container a.leaflet-popup-close-button {
+  color: var(--body);
+}
+
+[data-theme="dark"] .leaflet-bar,
+[data-theme="dark"] .leaflet-touch .leaflet-bar {
+  border-color: var(--line-strong);
+}
+
+[data-theme="dark"] .leaflet-bar a {
+  background: var(--card);
+  border-bottom-color: var(--line-strong);
+  color: var(--heading);
+}
+
+[data-theme="dark"] .leaflet-bar a:hover,
+[data-theme="dark"] .leaflet-bar a:focus {
+  background: var(--surface);
+}
+
+[data-theme="dark"] .leaflet-bar a.leaflet-disabled {
+  background: var(--card);
+  color: var(--body);
+  opacity: 0.5;
+}
+
+[data-theme="dark"] .leaflet-container .leaflet-control-attribution {
+  background: color-mix(in srgb, var(--card) 85%, transparent);
+  color: var(--body);
+}
+
+[data-theme="dark"] .leaflet-control-attribution a {
+  color: var(--brand-text);
 }

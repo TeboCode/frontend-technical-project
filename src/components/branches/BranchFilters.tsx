@@ -20,7 +20,7 @@ const LOCATION_MESSAGES: Partial<Record<LocationStatus, string>> = {
 };
 
 const fieldClass =
-  "block w-full min-w-0 rounded-sm border border-black/15 bg-white py-2.5 text-base text-heading focus:border-brand focus:outline-2 focus:outline-brand/30 sm:text-sm";
+  "block w-full min-w-0 rounded-sm border border-line-strong bg-card py-2.5 text-base text-heading focus:border-brand focus:outline-2 focus:outline-brand/30 sm:text-sm";
 
 /** Filters apply as you type; the search landmark helps assistive tech find them. */
 export function BranchFilters({
@@ -33,7 +33,7 @@ export function BranchFilters({
   onLocate,
 }: BranchFiltersProps) {
   return (
-    <search className="block rounded-md bg-white p-4 shadow-[0_2px_10px_rgba(0,0,0,0.06)] sm:p-5">
+    <search className="block rounded-md bg-card p-4 shadow-card sm:p-5">
       <form onSubmit={(event) => event.preventDefault()} className="grid gap-3 sm:grid-cols-2">
         <div className="sm:col-span-2">
           <label htmlFor="branch-search" className="block text-sm font-medium text-heading">

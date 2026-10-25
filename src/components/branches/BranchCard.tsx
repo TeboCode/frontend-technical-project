@@ -19,7 +19,7 @@ export function BranchCard({ branch, distanceKm, now, isSelected, onShowOnMap }:
     <article
       id={branch.id}
       aria-labelledby={headingId}
-      className={`scroll-mt-6 rounded-md bg-white p-5 shadow-[0_2px_10px_rgba(0,0,0,0.06)] transition-shadow ${
+      className={`scroll-mt-6 rounded-md bg-card p-5 shadow-card transition-shadow ${
         isSelected ? "ring-2 ring-brand" : ""
       }`}
     >
@@ -33,7 +33,7 @@ export function BranchCard({ branch, distanceKm, now, isSelected, onShowOnMap }:
         {status && (
           <p
             className={`max-w-[50%] shrink-0 rounded-xl px-2.5 py-0.5 text-center text-xs font-medium ${
-              status.isOpen ? "bg-brand/10 text-brand-dark" : "bg-black/5 text-body"
+              status.isOpen ? "bg-brand/10 text-brand-dark" : "bg-muted text-body"
             }`}
           >
             {status.isOpen ? "Open" : "Closed"} · {status.detail}
@@ -70,7 +70,7 @@ export function BranchCard({ branch, distanceKm, now, isSelected, onShowOnMap }:
           type="button"
           onClick={() => onShowOnMap(branch.id)}
           aria-pressed={isSelected}
-          className="inline-flex items-center gap-1.5 rounded-sm border border-black/15 px-3 py-2 text-sm font-medium text-heading transition-colors hover:bg-surface"
+          className="inline-flex items-center gap-1.5 rounded-sm border border-line-strong px-3 py-2 text-sm font-medium text-heading transition-colors hover:bg-surface"
         >
           <MapPin aria-hidden="true" className="size-4" />
           Show on map
@@ -79,7 +79,7 @@ export function BranchCard({ branch, distanceKm, now, isSelected, onShowOnMap }:
           href={directionsUrl(branch)}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 rounded-sm bg-brand px-3 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-dark"
+          className="inline-flex items-center gap-1.5 rounded-sm bg-brand-solid px-3 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-solid-hover"
         >
           <Navigation aria-hidden="true" className="size-4" />
           Directions

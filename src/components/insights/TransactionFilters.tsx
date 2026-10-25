@@ -11,7 +11,7 @@ type TransactionFiltersProps = {
 };
 
 const fieldClass =
-  "mt-1 block w-full rounded-sm border border-black/15 bg-white px-3 py-2 text-sm text-heading focus:border-brand focus:outline-2 focus:outline-brand/30";
+  "mt-1 block w-full rounded-sm border border-line-strong bg-card px-3 py-2 text-sm text-heading focus:border-brand focus:outline-2 focus:outline-brand/30";
 
 /**
  * A GET form: filters live in the URL, so results are shareable and the form
@@ -63,7 +63,7 @@ export function TransactionFilters({ categories, query, period }: TransactionFil
       <div className="col-span-2 flex items-end gap-2 lg:col-span-1">
         <button
           type="submit"
-          className="flex-1 rounded-sm bg-brand px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-dark lg:flex-none"
+          className="flex-1 rounded-sm bg-brand px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-hover lg:flex-none"
         >
           Apply
         </button>

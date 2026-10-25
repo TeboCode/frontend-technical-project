@@ -22,7 +22,7 @@ export function TransactionsTable({ transactions, currency }: TransactionsTableP
 
   return (
     <>
-      <ul aria-label="Transactions" className="divide-y divide-black/5 md:hidden">
+      <ul aria-label="Transactions" className="divide-y divide-line md:hidden">
         {transactions.map((transaction) => (
           <li key={transaction.id} className="flex items-center gap-3 py-3">
             <CategoryIcon icon={transaction.icon} color={transaction.categoryColor} />
@@ -42,7 +42,7 @@ export function TransactionsTable({ transactions, currency }: TransactionsTableP
 
       <table className="hidden w-full text-left text-sm md:table">
         <caption className="sr-only">Transactions</caption>
-        <thead className="border-b border-black/10 text-xs uppercase tracking-wide text-body">
+        <thead className="border-b border-line text-xs uppercase tracking-wide text-body">
           <tr>
             <th scope="col" className="px-3 py-3 font-medium">Merchant</th>
             <th scope="col" className="px-3 py-3 font-medium">Category</th>
@@ -51,7 +51,7 @@ export function TransactionsTable({ transactions, currency }: TransactionsTableP
             <th scope="col" className="px-3 py-3 text-right font-medium">Amount</th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-black/5">
+        <tbody className="divide-y divide-line">
           {transactions.map((transaction) => (
             <tr key={transaction.id}>
               <th scope="row" className="px-3 py-3 font-normal">

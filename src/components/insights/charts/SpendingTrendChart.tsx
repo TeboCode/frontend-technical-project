@@ -3,6 +3,7 @@
 import { Bar, BarChart, CartesianGrid, Tooltip, XAxis, YAxis } from "recharts";
 import { formatCurrency, formatMonth } from "@/lib/format";
 import type { MonthlyTrend } from "@/lib/insights/types";
+import { chartColors, tooltipTheme } from "./chartTheme";
 
 type SpendingTrendChartProps = {
   trends: MonthlyTrend[];
@@ -23,23 +24,24 @@ export function SpendingTrendChart({ trends, currency }: SpendingTrendChartProps
         margin={{ top: 8, right: 8, bottom: 0, left: 0 }}
         style={{ width: "100%", height: "100%" }}
       >
-        <CartesianGrid vertical={false} stroke="#e5e7eb" />
+        <CartesianGrid vertical={false} stroke={chartColors.grid} />
         <XAxis
           dataKey="month"
           tickFormatter={(month: string) => formatMonth(month)}
           tickLine={false}
           axisLine={false}
-          tick={{ fill: "#5f6368", fontSize: 12 }}
+          tick={{ fill: chartColors.tick, fontSize: 12 }}
         />
         <YAxis
           tickFormatter={compactCurrency}
           tickLine={false}
           axisLine={false}
           width={48}
-          tick={{ fill: "#5f6368", fontSize: 12 }}
+          tick={{ fill: chartColors.tick, fontSize: 12 }}
         />
         <Tooltip
-          cursor={{ fill: "rgba(67, 160, 71, 0.08)" }}
+          {...tooltipTheme}
+          cursor={{ fill: chartColors.cursor }}
           labelFormatter={(month) => formatMonth(String(month), "long")}
           formatter={(value) => [formatCurrency(Number(value), currency), "Total spent"]}
         />
